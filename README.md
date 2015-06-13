@@ -21,6 +21,10 @@ cd Plasma
 git pull
 ```
 
+## Plasma의 벤더 접두어
+- Plasma의 Class는 이름 앞에 `Plasma_`가 붙습니다. ex) Plasma_Validator
+- Plasma의 함수는 이름 앞에 `plsm_`가 붙습니다. ex) plsm_check_is_null
+
 ## 라이센스
 [MIT 라이센스](LICENSE)
 
