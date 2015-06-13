@@ -1,5 +1,5 @@
 <?php
 
-function check_is_null($value) {
+function plsm_check_is_null($value) {
 	return $value === null;
 }

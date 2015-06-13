@@ -1,5 +1,5 @@
 <?php
 
-class Validator {
+class Plasma_Validator {
 	
 }

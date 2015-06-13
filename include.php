@@ -1,3 +1,4 @@
 <?php
+$FOLDER = dirname(__FILE__);
 
-include 'util/include.php';
+include $FOLDER.'/util/include.php';

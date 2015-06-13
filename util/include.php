@@ -1,5 +1,6 @@
 <?php
+$FOLDER = dirname(__FILE__);
 
-include 'check_is_null.php';
+include $FOLDER.'/check_is_null.php';
 
-include 'Validator.php';
+include $FOLDER.'/Validator.php';
