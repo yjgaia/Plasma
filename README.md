@@ -21,6 +21,9 @@ cd Plasma
 git pull
 ```
 
+## Plasma의 코드 컨벤션
+개발을 시작하시기 전에 [Plasma의 코드 컨벤션](https://github.com/Hanul/Plasma/wiki/Plasma-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%BD%94%EB%93%9C-%EC%BB%A8%EB%B2%A4%EC%85%98)을 먼저 살펴보시기 바랍니다.
+
 ## Plasma의 벤더 접두어
 - Plasma의 Class는 이름 앞에 `Plasma_`가 붙습니다. ex) Plasma_Validator
 - Plasma의 함수는 이름 앞에 `plsm_`가 붙습니다. ex) plsm_check_is_null

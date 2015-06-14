@@ -1,12 +1,16 @@
 # Plasma 유틸리티
 
-## check_is_null($value)
-`$value`가 `null`인지 확인합니다.
-```php
-// true
-echo plsm_check_is_null(null) ? 'true' : 'false';
-echo '<br>';
+## RequestInfo
+request의 정보를 지니고 있는 클래스입니다.
 
-// false
-echo plsm_check_is_null('test') ? 'true' : 'false';
+### Static Properties
+- `$ip` request의 IP입니다.
+```php
+// 127.0.0.1
+echo Plasma_RequestInfo::$ip;
+```
+- `$method` request의 method입니다.
+```php
+// GET or POST or PUT or DELETE
+echo Plasma_RequestInfo::$method;
 ```
