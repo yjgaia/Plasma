@@ -1,5 +1,11 @@
 # Plasma 유틸리티
 
+## redirect($url)
+`$url`로 redirect 합니다.
+```php
+plsm_redirect('https://github.com/Hanul/Plasma');
+```
+
 ## RequestInfo
 request의 정보를 지니고 있는 클래스입니다.
 
