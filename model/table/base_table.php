@@ -1,36 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Min
- * Date: 2015. 6. 13.
- * Time: 오후 6:47
- */
 
-class baseTable extends Table {
+abstract class Plasma_baseTable {
 
-    protected function getId()
-    {
-        // TODO: Implement getId() method.
-    }
+    protected $columns; // Columns must be declared in Array()
 
-    protected function setId($id)
-    {
-        // TODO: Implement setId() method.
-    }
+    abstract protected function getId();
 
-    protected function save()
-    {
-        // TODO: Implement save() method.
-    }
+    abstract protected function setId($id);
 
-    protected function update($columnName, $value)
-    {
-        // TODO: Implement update() method.
-    }
+    abstract protected function save();
 
-    protected function delete()
-    {
-        // TODO: Implement delete() method.
-    }
+    abstract protected function update($column, $value);
+
+    abstract protected function delete();
 
 }

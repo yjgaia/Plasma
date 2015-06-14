@@ -1,15 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Min
- * Date: 2015. 6. 13.
- * Time: 오후 7:02
- */
 
-namespace column;
-
-
-class charColumn extends baseColumn
+class Plasma_charColumn extends Plasma_baseColumn
 {
 
     function __construct($columnName)
@@ -19,13 +10,13 @@ class charColumn extends baseColumn
         $this->columnName = (string)$columnName;
     }
 
-    function getColumnType()
+    function plsm_getColumnType()
     {
         // TODO: Implement getColumnType() method.
         return $this->columnType;
     }
 
-    function getColumnName()
+    function plsm_getColumnName()
     {
         // TODO: Implement getColumnName() method.
         return $this->columnName;
