@@ -1,9 +1,9 @@
 # Plasma 유틸리티
 
-## plsm_redirect($url)
+## redirect($url)
 `$url`로 redirect 합니다.
 ```php
-plsm_redirect('https://github.com/Hanul/Plasma');
+redirect('https://github.com/Hanul/Plasma');
 ```
 
 ## RequestInfo

@@ -9,12 +9,12 @@ class Plasma_charColumn extends Plasma_baseColumn
         $this->columnName = (string)$columnName;
     }
 
-    function plsm_getColumnType()
+    function getColumnType()
     {
         return $this->columnType;
     }
 
-    function plsm_getColumnName()
+    function getColumnName()
     {
         return $this->columnName;
     }

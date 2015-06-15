@@ -6,8 +6,8 @@ abstract class Plasma_baseColumn {
 
     protected $columnType;
 
-    abstract protected function plsm_getColumnType();
+    abstract protected function getColumnType();
 
-    abstract protected function plsm_getColumnName();
+    abstract protected function getColumnName();
 
 }

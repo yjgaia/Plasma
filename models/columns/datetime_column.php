@@ -8,12 +8,12 @@ class Plasma_datetimeColumn extends Plasma_baseColumn{
         $this->columnName = (string)$columnName;
     }
 
-    protected function plsm_getColumnType()
+    protected function getColumnType()
     {
 
     }
 
-    protected function plsm_getColumnName()
+    protected function getColumnName()
     {
 
     }

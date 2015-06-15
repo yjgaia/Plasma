@@ -3,6 +3,6 @@
 /**
  * $url로 redirect 합니다.
  */
-function plsm_redirect($url) {
+function redirect($url) {
 	header("Location: $url");
 }

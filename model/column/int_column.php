@@ -9,12 +9,12 @@ class Plasma_intColumn extends Plasma_baseColumn {
         $this->columnName = (string)$columnName;
     }
 
-    protected function plsm_getColumnType()
+    protected function getColumnType()
     {
         // TODO: Implement getColumnType() method.
     }
 
-    protected function plsm_getColumnName()
+    protected function getColumnName()
     {
         // TODO: Implement getColumnName() method.
     }
