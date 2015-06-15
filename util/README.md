@@ -20,3 +20,7 @@ echo Plasma_RequestInfo::$ip;
 // GET or POST or PUT or DELETE
 echo Plasma_RequestInfo::$method;
 ```
+- `$params` request의 파라미터들입니다.
+```php
+Plasma_RequestInfo::$params['username'];
+```
