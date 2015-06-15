@@ -1,6 +1,6 @@
 # Plasma 유틸리티
 
-## redirect($url)
+## plsm_redirect($url)
 `$url`로 redirect 합니다.
 ```php
 plsm_redirect('https://github.com/Hanul/Plasma');
@@ -19,8 +19,4 @@ echo Plasma_RequestInfo::$ip;
 ```php
 // GET or POST or PUT or DELETE
 echo Plasma_RequestInfo::$method;
-```
-- `$params` request의 파라미터들입니다.
-```php
-Plasma_RequestInfo::$params['username'];
 ```
