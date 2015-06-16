@@ -2,11 +2,10 @@
 
 class Plasma_intColumn extends Plasma_baseColumn {
 
-    function __construct($columnName)
+    function __construct($_value = null)
     {
-
         $this->columnType = 'intColumn';
-        $this->columnName = (string)$columnName;
+        $this->value = $_value;
     }
 
     protected function getColumnType()
@@ -14,8 +13,4 @@ class Plasma_intColumn extends Plasma_baseColumn {
 
     }
 
-    protected function getColumnName()
-    {
-
-    }
 }

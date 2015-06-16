@@ -1,6 +1,7 @@
 <?php
 
-class Plasma_Model extends Plasma_baseModel {
+class Plasma_Model extends Plasma_baseModel
+{
 
     function __construct()
     {
@@ -25,7 +26,8 @@ class Plasma_Model extends Plasma_baseModel {
 
     protected function update($columnName, $value)
     {
-        try {
+        try
+        {
             /*
              * variable columns forms this structure -
              * columnName => columnObject(contains type, value)
@@ -34,11 +36,15 @@ class Plasma_Model extends Plasma_baseModel {
             {
                 $this->columns[$columnName] = $value;
                 // execute query to update
-            } else {
+            }
+            else
+            {
                 throw new Plasma_noColumnException;
             }
 
-        } catch(Plasma_noColumnException $e) {
+        }
+        catch(Plasma_noColumnException $e)
+        {
             // No column.
         }
     }
@@ -58,5 +64,9 @@ class Plasma_Model extends Plasma_baseModel {
 
     }
 
+    protected function setColumns($columnsArray)
+    {
+        $this->columns = $columnsArray;
+    }
 
 }

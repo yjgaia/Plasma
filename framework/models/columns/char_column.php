@@ -3,10 +3,10 @@
 class Plasma_charColumn extends Plasma_baseColumn
 {
 
-    function __construct($columnName)
+    function __construct($_value = null)
     {
         $this->columnType = 'charColumn';
-        $this->columnName = (string)$columnName;
+        $this->value = $_value;
     }
 
     function getColumnType()
@@ -14,8 +14,4 @@ class Plasma_charColumn extends Plasma_baseColumn
         return $this->columnType;
     }
 
-    function getColumnName()
-    {
-        return $this->columnName;
-    }
 }
