@@ -5,37 +5,88 @@ class Plasma_Model extends Plasma_baseModel
 
     function __construct()
     {
+        $this->tableName = '';
         $this->columns = array();
         $this->id = 0;
     }
 
-    protected function getId()
+    public function getId()
     {
         return $this->id;
     }
 
-    protected function setId($_id)
+    public function getTableName()
     {
-        $this->id = $_id;
+        return $this->tableName;
     }
 
-    protected function save()
+    public function setTableName($_tableName)
+    {
+        $this->tableName = $_tableName;
+    }
+
+    public function save()
     {
         // execute query to save
+
+        // generate all column's sql query
+        $columnNames = '';
+        $columnValues = '';
+        foreach ($this->columns as $fieldName => $columnObj)
+        {
+            if ($columnObj->columnName == null) {
+                $columnNames .= $fieldName.', ';
+            } else {
+                $columnNames .= $columnObj->columnName.', ';
+            }
+            $columnValues .= $columnObj->generateValueForSQL().', ';
+        }
+        $columnNames = substr($columnNames, 0, -1);
+        $columnValues = substr($columnValues, 0, -1);
+        $thisTableName = $this->tableName;
+        $thisId = $this->id;
+
+        if ($this->id == 0) {
+            // This object is not saved yet.
+            $query = 'INSERT INTO $thisTableName ($columnNames) VALUES ($columnValues);';
+            // Execute query
+        } else {
+            // This object is on the DB.
+            $query = 'INSERT INTO $thisTableName ($columnNames) VALUES ($columnValues); WHERE id=$thisId';
+            // Execute query
+        }
+
     }
 
-    protected function update($columnName, $value)
+    public function update($fieldName, $_value)
     {
+        if ($this->id == 0)
+        {
+            throw new Plasma_ObjectNotExists;
+        }
+
         try
         {
             /*
              * variable columns forms this structure -
-             * columnName => columnObject(contains type, value)
+             * fieldName => columnObject(contains type, value, columnName)
              */
-            if (array_key_exists($columnName, $this->columns))
+            if (array_key_exists($fieldName, $this->columns))
             {
-                $this->columns[$columnName] = $value;
-                // execute query to update
+                // make query to update
+                $this->columns[$fieldName]->setValue($_value);
+
+                $thisTableName = $this->tableName;
+                $columnName = $this->columns[$fieldName]->columnName;
+                if ($columnName == null) {
+                    $columnName = $fieldName;
+                }
+                $columnValue = $this->columns[$fieldName]->generateValueForSQL();
+                $thisId = $this->id;
+                $query = 'UPDATE $thisTableName SET $columnName=$columnValue WHERE id=$thisId';
+
+                // Execute Query
+
             }
             else
             {
@@ -49,22 +100,29 @@ class Plasma_Model extends Plasma_baseModel
         }
     }
 
-    protected function delete()
+    public function delete()
     {
-        // execute query to delete
+        if ($this->id == 0)
+        {
+            throw new Plasma_ObjectNotExists;
+        }
+        $thisTableName = $this->tableName;
+        $thisId = $this->id;
+        $query = 'DELETE FROM $thisTableName WHERE id=$thisId';
+        // Execute Query
     }
 
-    protected function find()
+    public function find()
     {
 
     }
 
-    protected function findOne()
+    public function findOne()
     {
 
     }
 
-    protected function setColumns($columnsArray)
+    public function setColumns($columnsArray)
     {
         $this->columns = $columnsArray;
     }

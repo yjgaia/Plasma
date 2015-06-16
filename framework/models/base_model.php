@@ -2,22 +2,26 @@
 
 abstract class Plasma_baseModel {
 
-    protected $id;
+    public $tableName;
 
-    protected $columns; // Columns must be declared in Array()
+    public $id;
 
-    abstract protected function getId();
+    public $columns; // Columns must be declared in Array()
 
-    abstract protected function setId($id);
+    abstract public function getId();
 
-    abstract protected function save();
+    abstract public function getTableName();
 
-    abstract protected function update($column, $value);
+    abstract public function setTableName($tableName);
 
-    abstract protected function delete();
+    abstract public function save();
 
-    abstract protected function find();
+    abstract public function update($fieldName, $_value);
 
-    abstract protected function findOne();
+    abstract public function delete();
+
+    abstract public function find();
+
+    abstract public function findOne();
 
 }
