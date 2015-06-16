@@ -27,9 +27,6 @@ git pull
 ## 벤더 접두어
 - Plasma의 Class는 이름 앞에 `Plasma_`가 붙습니다. ex) Plasma_Validator
 
-## 구조
-![ScreenShot](https://raw.githubusercontent.com/Hanul/Plasma/master/structure.png)
-
 ## 라이센스
 [MIT 라이센스](LICENSE)
 
