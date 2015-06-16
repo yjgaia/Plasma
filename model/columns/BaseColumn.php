@@ -1,6 +1,6 @@
 <?php
 
-abstract class Plasma_baseColumn {
+abstract class Plasma_BaseColumn {
 
     public $value;
 

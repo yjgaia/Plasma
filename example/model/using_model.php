@@ -1,6 +1,6 @@
 <?php
 
-class My_model extends Plasma_Model
+class My_Model extends Plasma_Model
 {
 
     function function1()
@@ -11,8 +11,8 @@ class My_model extends Plasma_Model
     function __construct()
     {
         $this->columns = array(
-            'column1' => new Plasma_charColumn(),
-            'column2' => new Plasma_intColumn()
+            'column1' => new Plasma_CharColumn(),
+            'column2' => new Plasma_IntColumn()
         );
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-class Plasma_charColumn extends Plasma_baseColumn
+class Plasma_CharColumn extends Plasma_BaseColumn
 {
 
     function __construct($_value = null, $_columnName)

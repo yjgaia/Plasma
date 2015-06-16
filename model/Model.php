@@ -1,6 +1,6 @@
 <?php
 
-class Plasma_Model extends Plasma_baseModel
+class Plasma_Model extends Plasma_BaseModel
 {
 
     function __construct()
