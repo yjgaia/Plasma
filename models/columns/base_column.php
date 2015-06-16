@@ -2,14 +2,16 @@
 
 abstract class Plasma_baseColumn {
 
-    protected $value;
+    public $value;
 
-    protected $columnName;
+    public $columnName;
 
-    protected $columnType;
+    public $columnType;
 
-    abstract protected function getColumnType();
+    abstract public function getColumnType();
 
-    abstract protected function getColumnName();
+    abstract public function generateValueForSQL();
+
+    abstract public function setValue($_value);
 
 }
