@@ -16,6 +16,6 @@ abstract class Plasma_baseModel {
 
     abstract public function find($findArray);
 
-    abstract public function findOne();
+    abstract public function findOne($findArray);
 
 }

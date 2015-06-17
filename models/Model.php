@@ -131,9 +131,21 @@ class Plasma_Model extends Plasma_BaseModel
         return mysql_get_list($query);
     }
 
-    public function findOne()
+    public function findOne($findArray)
     {
-
+        $findQuery = '';
+        foreach ($findArray as $findFieldName => $findKey)
+        {
+            if (!array_key_exists($findFieldName, $this->columns))
+            {
+                throw new Plasma_NoColumnException;
+            }
+            $findQuery .= ' '.$findFieldName.'='.$findKey.' AND';
+        }
+        $findQuery = substr($findQuery, 0, -3);
+        $thisTableName = $this->tableName;
+        $query = 'SELECT * FROM $thisTableName WHERE $findQuery;';
+        return mysql_get_one($query);
     }
 
 }
