@@ -1,6 +1,6 @@
 <?php
 
-class Plasma_datetimeColumn extends Plasma_baseColumn{
+class Plasma_DatetimeColumn extends Plasma_BaseColumn{
 
     function __construct($_value = null, $_columnName)
     {
