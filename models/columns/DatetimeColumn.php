@@ -9,11 +9,6 @@ class Plasma_DatetimeColumn extends Plasma_BaseColumn{
         $this->value = $defaultValue;
     }
 
-    public function getColumnType()
-    {
-        return $this->columnType;
-    }
-
     public function generateValueForSQL()
     {
         return "'".(string)date("Y-m-d H:i:s", $this->value)."'";

@@ -9,11 +9,6 @@ class Plasma_IntColumn extends Plasma_BaseColumn {
         $this->value = $defaultValue;
     }
 
-    public function getColumnType()
-    {
-        return $this->columnType;
-    }
-
     public function generateValueForSQL()
     {
         return "'".(string)$this->value."'";
