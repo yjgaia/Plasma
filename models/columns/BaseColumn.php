@@ -8,8 +8,6 @@ abstract class Plasma_BaseColumn {
 
     public $columnType;
 
-    abstract public function getColumnType();
-
     abstract public function generateValueForSQL();
 
     abstract public function setValue($_value);

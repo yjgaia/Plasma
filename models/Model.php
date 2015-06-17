@@ -10,6 +10,7 @@ class Plasma_Model extends Plasma_BaseModel
         $this->id = 0;
     }
 
+
     public function save()
     {
         // execute query to save
@@ -101,24 +102,38 @@ class Plasma_Model extends Plasma_BaseModel
         mysql_run_query($query);
     }
 
-    public function find()
+    public function find($findArray)
     {
         /*
          * 검색 방식 생각중.
          *
          * 1. 단순히 칼럼 => 텍스트
          * 2. 제외, 텍스트 포함, 등 옵션까지 설정
+         *
+         * 일단 1번부터 만들기로 함.
+         * array()를 받아야함.
+         *
+         * 필드 이름 => 값
          */
+
+        $findQuery = '';
+        foreach ($findArray as $findFieldName => $findKey)
+        {
+            if (!array_key_exists($findFieldName, $this->columns))
+            {
+                throw new Plasma_NoColumnException;
+            }
+            $findQuery .= ' '.$findFieldName.'='.$findKey.' AND';
+        }
+        $findQuery = substr($findQuery, 0, -3);
+        $thisTableName = $this->tableName;
+        $query = 'SELECT * FROM $thisTableName WHERE $findQuery;';
+        return mysql_get_list($query);
     }
 
     public function findOne()
     {
 
-    }
-
-    public function setColumns($columnsArray)
-    {
-        $this->columns = $columnsArray;
     }
 
 }
