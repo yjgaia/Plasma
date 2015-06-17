@@ -10,7 +10,6 @@ class Plasma_CharColumn extends Plasma_BaseColumn
         $this->value = $defaultValue;
     }
 
-
     public function generateValueForSQL()
     {
         return "'".$this->value."'";

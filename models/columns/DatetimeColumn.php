@@ -27,5 +27,4 @@ class Plasma_DatetimeColumn extends Plasma_BaseColumn{
         // TODO: Damn Type!!! Let's think how to check type well.
     }
 
-
 }

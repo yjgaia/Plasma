@@ -129,6 +129,7 @@ class Plasma_Model extends Plasma_BaseModel
         $thisTableName = $this->tableName;
         $query = 'SELECT * FROM $thisTableName WHERE $findQuery;';
         return mysql_get_list($query);
+        // TODO: 이 값들을 해당 모델에다가 넣어주고, 객체로 리턴해야 함.
     }
 
     public function findOne($findArray)
@@ -146,6 +147,7 @@ class Plasma_Model extends Plasma_BaseModel
         $thisTableName = $this->tableName;
         $query = 'SELECT * FROM $thisTableName WHERE $findQuery;';
         return mysql_get_one($query);
+        // TODO: 이 값들을 해당 모델에다가 넣어주고, 객체로 리턴해야 함.
     }
 
 }
