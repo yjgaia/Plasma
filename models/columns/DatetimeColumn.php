@@ -2,11 +2,11 @@
 
 class Plasma_DatetimeColumn extends Plasma_BaseColumn{
 
-    function __construct($_value = null, $_columnName)
+    function __construct($defaultValue = null, $_columnName = null)
     {
         $this->columnType = 'datetimeColumn';
         $this->columnName = $_columnName;
-        $this->value = $_value;
+        $this->value = $defaultValue;
     }
 
     public function getColumnType()

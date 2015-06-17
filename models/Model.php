@@ -10,21 +10,6 @@ class Plasma_Model extends Plasma_BaseModel
         $this->id = 0;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getTableName()
-    {
-        return $this->tableName;
-    }
-
-    public function setTableName($_tableName)
-    {
-        $this->tableName = $_tableName;
-    }
-
     public function save()
     {
         // execute query to save
@@ -52,9 +37,11 @@ class Plasma_Model extends Plasma_BaseModel
             // Execute query
         } else {
             // This object is on the DB.
-            $query = 'INSERT INTO $thisTableName ($columnNames) VALUES ($columnValues); WHERE id=$thisId';
+            $query = 'INSERT INTO $thisTableName ($columnNames) VALUES ($columnValues) WHERE id=$thisId;';
             // Execute query
         }
+
+        mysql_run_query($query);
 
     }
 
@@ -86,6 +73,7 @@ class Plasma_Model extends Plasma_BaseModel
                 $query = 'UPDATE $thisTableName SET $columnName=$columnValue WHERE id=$thisId';
 
                 // Execute Query
+                mysql_run_query($query);
 
             }
             else
@@ -110,11 +98,17 @@ class Plasma_Model extends Plasma_BaseModel
         $thisId = $this->id;
         $query = 'DELETE FROM $thisTableName WHERE id=$thisId';
         // Execute Query
+        mysql_run_query($query);
     }
 
     public function find()
     {
-
+        /*
+         * 검색 방식 생각중.
+         *
+         * 1. 단순히 칼럼 => 텍스트
+         * 2. 제외, 텍스트 포함, 등 옵션까지 설정
+         */
     }
 
     public function findOne()
