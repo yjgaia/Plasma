@@ -1,6 +1,9 @@
 # Plasma
 오픈소스 PHP 프레임워크
 
+## PHP 버전
+PHP 5.2 이상에서 작동합니다.
+
 ## 설치
 ### 윈도에 [APMSETUP](http://www.apmsetup.com/)을 설치했을 경우
 ```
