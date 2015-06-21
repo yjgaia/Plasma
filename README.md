@@ -1,6 +1,9 @@
 # Plasma
 오픈소스 PHP 프레임워크
 
+## PHP 버전
+PHP 5.2 이상에서 작동합니다.
+
 ## 설치
 ### 윈도에 [APMSETUP](http://www.apmsetup.com/)을 설치했을 경우
 ```
@@ -36,3 +39,6 @@ git pull
 
 ## SourceTree에서 Plasma 열기
 상단 메뉴 중 복제 / 생성을 누른 뒤, 작업공간 열기를 누르고 Plasma를 clone한 경로를 지정합니다.
+
+## TODO
+- mysql_xxx -> mysqli_xxx
