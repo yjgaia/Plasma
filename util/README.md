@@ -1,9 +1,32 @@
 # Plasma 유틸리티
 
+## show_debug_msg($msg)
+Dev Mode 일 때 디버그 메시지를 출력합니다.
+```php
+show_debug_msg('This is debug message.');
+```
+
 ## redirect($url)
 `$url`로 redirect 합니다.
 ```php
 redirect('https://github.com/Hanul/Plasma');
+```
+
+## validate($value, $type, $valid_value = true)
+`$value`가 값이면 `$type`에 해당하는 검증을 수행하고, `Array`면 `$type`에도 검증 `Array`를 넣어 데이터를 검증합니다.
+```php
+validate('', 'notEmpty') // false
+validate('Hello!', 'notEmpty') // true
+
+$data = array(
+	username => ''
+);
+
+validate($data, , array(
+	username => array(
+		notEmpty => true
+	)
+)); // array(username => 'notEmpty')
 ```
 
 ## RequestInfo
