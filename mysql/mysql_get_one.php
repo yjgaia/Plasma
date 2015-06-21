@@ -10,7 +10,7 @@ function mysql_get_one($query) {
 	// 코드 트래킹
 	if ($plasma_config['is_dev_mode'] === true) {
 		$backtrace = debug_backtrace();
-		echo $backtrace[0]['args'][0].' # '.$backtrace[0]['file'].', line:'.$backtrace[0]['line'];
+		show_debug_msg($backtrace[0]['args'][0].' # '.$backtrace[0]['file'].', line:'.$backtrace[0]['line']);
 	}
 	
 	$conn = mysql_connect($plasma_config['mysql']['server'], $plasma_config['mysql']['username'], $plasma_config['mysql']['password']);

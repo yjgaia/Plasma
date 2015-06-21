@@ -9,8 +9,9 @@ include $PLASMA_FOLDER_PATH.'/controller/controller.php';
 
 // 유틸리티 로드
 include $PLASMA_FOLDER_PATH.'/util/RequestInfo.php';
-include $PLASMA_FOLDER_PATH.'/util/Validator.php';
 
+include $PLASMA_FOLDER_PATH.'/util/show_debug_msg.php';
+include $PLASMA_FOLDER_PATH.'/util/validate.php';
 include $PLASMA_FOLDER_PATH.'/util/redirect.php';
 
 
