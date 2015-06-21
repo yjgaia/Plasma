@@ -25,7 +25,7 @@ class My_Model extends Plasma_Model
              *
              * 이걸 생성할 때 2가지 파라미터가 있는데,
              *  첫번째는 기본 값입니다. DB에 들어갈 때 기본 값입니다.
-             *  두번째는 필드 이름(findName)입니다. 비워두면 array의 key가 DB의 칼럼이름으로 인식합니다.
+             *  두번째는 칼럼 이름입니다. 비워두면 fieldName (array의 key) 이 DB의 칼럼이름으로 인식합니다.
              */
             'created_at' => new Plasma_DatetimeColumn(null, '칼럼 이름'),
             'name' => new Plasma_CharColumn('기본 값', '칼럼 이름'),
