@@ -3,6 +3,9 @@
 // 플라즈마가 설치된 폴더입니다.
 $PLASMA_FOLDER_PATH = dirname(__FILE__);
 
+// 컨트롤러 로드
+include $PLASMA_FOLDER_PATH.'/controller/controller.php';
+
 
 // 유틸리티 로드
 include $PLASMA_FOLDER_PATH.'/util/RequestInfo.php';
