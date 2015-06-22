@@ -4,7 +4,7 @@
 $PLASMA_FOLDER_PATH = dirname(__FILE__);
 
 // 컨트롤러 로드
-include $PLASMA_FOLDER_PATH.'/controller/controller.php';
+include $PLASMA_FOLDER_PATH.'/controller/Controller.php';
 
 
 // 유틸리티 로드
