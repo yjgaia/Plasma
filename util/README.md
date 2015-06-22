@@ -22,12 +22,18 @@ $data = array(
 	username => ''
 );
 
-validate($data, , array(
+validate($data, array(
 	username => array(
 		notEmpty => true
 	)
 )); // array(username => 'notEmpty')
 ```
+
+### 처리할 수 있는 `$type`들
+* `not_empty` 빈 값이 아닌지 검증합니다.
+* `username` 영어 대소문자와 숫자, 하이픈(-), 언더바(_)만 가능한 아이디 형태인지 검증합니다.
+* `min_size` 값의 길이가 `$valid_value` 이상인지 검증합니다.
+* `max_size` 값의 길이가 `$valid_value` 이하인지 검증합니다.
 
 ## RequestInfo
 request의 정보를 지니고 있는 클래스입니다.
