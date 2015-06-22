@@ -47,3 +47,17 @@ echo Plasma_RequestInfo::$method;
 ```php
 Plasma_RequestInfo::$params['username'];
 ```
+
+## get($index = null, $xss = null)
+URL 파라메타를 가져올수 있습니다
+```php
+get("parameter", TRUE); // xss 필터링
+get("parameter", FALSE); // xss 필터링 비사용
+```
+
+## post($index = null, $xss = null)
+폼값을 가져올수 있습니다
+```php
+post("parameter", TRUE); // xss 필터링
+post("parameter", FALSE); // xss 필터링 비사용
+```
