@@ -1,7 +1,8 @@
 <?php
 
-class Plasma_Model extends Plasma_BaseModel
+class Plasma_ModelBox extends Plasma_BaseModel
 {
+    //ToyBox
 
     function __construct()
     {
@@ -128,7 +129,8 @@ class Plasma_Model extends Plasma_BaseModel
         $findQuery = substr($findQuery, 0, -3);
         $thisTableName = $this->tableName;
         $query = 'SELECT * FROM $thisTableName WHERE $findQuery;';
-        return mysql_get_list($query);
+
+        $list = mysql_get_list($query);
         // TODO: 이 값들을 해당 모델에다가 넣어주고, 객체로 리턴해야 함.
     }
 
