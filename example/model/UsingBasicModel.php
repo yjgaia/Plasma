@@ -1,19 +1,14 @@
 <?php
 
-class My_Model extends Plasma_Model
+class My_ModelBox extends Plasma_ModelBox
 {
     /*
-     * 모델은 기본적으로 Plasma_Model 클레스를 상속받습니다.
+     * 모델은 기본적으로 Plasma_ModelBox 클레스를 상속받습니다.
      *
      * 각 모델에 함수는 원하는대로 만들 수 있으며,
      * __construct()함수, 즉 생성자에서 해당 모델들의 칼럼과, 테이블 명을 지정해야 합니다.
      * 각 모델은 id라는 이름의 Primary Key를 가져야 합니다.
      */
-
-    function function1()
-    {
-        return $this->columns['column1'];
-    }
     function __construct()
     {
         /*
