@@ -5,7 +5,7 @@ class Plasma_ModelBox extends Plasma_BaseModel
 
     function __construct()
     {
-        $this->tableName = '';
+        $this->table_name = '';
         $this->columns = array();
         $this->id = 0;
     }
@@ -15,7 +15,7 @@ class Plasma_ModelBox extends Plasma_BaseModel
         return new Plasma_ModelObject($this, $this->columns);
     }
 
-    public function find($findArray)
+    public function find($find_array)
     {
         /*
          * 검색 방식 생각중.
@@ -29,51 +29,51 @@ class Plasma_ModelBox extends Plasma_BaseModel
          * 필드 이름 => 값
          */
 
-        $findQuery = '';
-        foreach ($findArray as $findFieldName => $findKey)
+        $find_query = '';
+        foreach ($find_array as $find_field_name => $find_key)
         {
-            if (!array_key_exists($findFieldName, $this->columns))
+            if (!array_key_exists($find_field_name, $this->columns))
             {
                 throw new Plasma_NoColumnException;
             }
-            $findQuery .= ' '.$findFieldName.'='.$findKey.' AND';
+            $find_query .= ' '.$find_field_name.'='.$find_key.' AND';
         }
-        $findQuery = substr($findQuery, 0, -3);
-        $thisTableName = $this->tableName;
-        $query = 'SELECT * FROM $thisTableName WHERE $findQuery;';
+        $find_query = substr($find_query, 0, -3);
+        $this_table_name = $this->table_name;
+        $query = 'SELECT * FROM $this_table_name WHERE $find_query;';
 
         $list = mysql_get_list($query);
-        $returnArray = array();
+        $return_array = array();
         /*
          * columnName => value
          */
-        foreach ($list as $singleRow)
+        foreach ($list as $single_row)
         {
             $_columns = $this->columns;
-            foreach ($singleRow as $columnName => $value)
+            foreach ($single_row as $column_name => $value)
             {
-                $_columns[$columnName]->setValue($value);
+                $_columns[$column_name]->setValue($value);
             }
-            array_push($returnArray, new Plasma_ModelObject($this, $_columns));
+            array_push($return_array, new Plasma_ModelObject($this, $_columns));
         }
-        return $returnArray;
+        return $return_array;
         // TODO: 이 값들을 해당 모델에다가 넣어주고, 객체로 리턴해야 함.
     }
 
-    public function findOne($findArray)
+    public function findOne($find_array)
     {
-        $findQuery = '';
-        foreach ($findArray as $findFieldName => $findKey)
+        $find_query = '';
+        foreach ($find_array as $find_field_name => $find_key)
         {
-            if (!array_key_exists($findFieldName, $this->columns))
+            if (!array_key_exists($find_field_name, $this->columns))
             {
                 throw new Plasma_NoColumnException;
             }
-            $findQuery .= ' '.$findFieldName.'='.$findKey.' AND';
+            $find_query .= ' '.$find_field_name.'='.$find_key.' AND';
         }
-        $findQuery = substr($findQuery, 0, -3);
-        $thisTableName = $this->tableName;
-        $query = 'SELECT * FROM $thisTableName WHERE $findQuery;';
+        $find_query = substr($find_query, 0, -3);
+        $this_table_name = $this->table_name;
+        $query = 'SELECT * FROM $this_table_name WHERE $find_query;';
         return mysql_get_one($query);
         // TODO: 이 값들을 해당 모델에다가 넣어주고, 객체로 리턴해야 함.
     }

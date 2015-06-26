@@ -2,10 +2,12 @@
 class Plasma_ModelObject extends Plasma_BaseModel
 {
 
-    function __construct($_modelBox, $_columns)
+    public $model_box;
+
+    function __construct($model_box, $_columns)
     {
-        $this->modelBox = $_modelBox;
-        $this->tableName = $_modelBox->tableName;
+        $this->model_box = $model_box;
+        $this->table_name = $model_box->table_name;
         $this->columns = $_columns;
         $this->id = 0;
     }
@@ -15,29 +17,29 @@ class Plasma_ModelObject extends Plasma_BaseModel
         // execute query to save
 
         // generate all column's sql query
-        $columnNames = '';
-        $columnValues = '';
-        foreach ($this->columns as $fieldName => $columnObj)
+        $column_names = '';
+        $column_values = '';
+        foreach ($this->columns as $field_name => $column_obj)
         {
-            if ($columnObj->columnName == null) {
-                $columnNames .= $fieldName.', ';
+            if ($column_obj->columnName == null) {
+                $column_names .= $field_name.', ';
             } else {
-                $columnNames .= $columnObj->columnName.', ';
+                $column_names .= $column_obj->columnName.', ';
             }
-            $columnValues .= $columnObj->generateValueForSQL().', ';
+            $column_values .= $column_obj->generateValueForSQL().', ';
         }
-        $columnNames = substr($columnNames, 0, -1);
-        $columnValues = substr($columnValues, 0, -1);
-        $thisTableName = $this->tableName;
-        $thisId = $this->id;
+        $column_names = substr($column_names, 0, -1);
+        $column_values = substr($column_values, 0, -1);
+        $this_table_name = $this->table_name;
+        $this_id = $this->id;
 
         if ($this->id == 0) {
             // This object is not saved yet.
-            $query = 'INSERT INTO $thisTableName ($columnNames) VALUES ($columnValues);';
+            $query = 'INSERT INTO $this_table_name ($column_names) VALUES ($column_values);';
             // Execute query
         } else {
             // This object is on the DB.
-            $query = 'INSERT INTO $thisTableName ($columnNames) VALUES ($columnValues) WHERE id=$thisId;';
+            $query = 'INSERT INTO $this_table_name ($column_names) VALUES ($column_values) WHERE id=$this_id;';
             // Execute query
         }
 
@@ -45,7 +47,7 @@ class Plasma_ModelObject extends Plasma_BaseModel
 
     }
 
-    public function update($fieldName, $_value)
+    public function update($field_name, $_value)
     {
         if ($this->id == 0)
         {
@@ -58,19 +60,19 @@ class Plasma_ModelObject extends Plasma_BaseModel
              * variable columns forms this structure -
              * fieldName => columnObject(contains type, value, columnName)
              */
-            if (array_key_exists($fieldName, $this->columns))
+            if (array_key_exists($field_name, $this->columns))
             {
                 // make query to update
-                $this->columns[$fieldName]->setValue($_value);
+                $this->columns[$field_name]->setValue($_value);
 
-                $thisTableName = $this->tableName;
-                $columnName = $this->columns[$fieldName]->columnName;
-                if ($columnName == null) {
-                    $columnName = $fieldName;
+                $this_table_name = $this->table_name;
+                $column_name = $this->columns[$field_name]->columnName;
+                if ($column_name == null) {
+                    $column_name = $field_name;
                 }
-                $columnValue = $this->columns[$fieldName]->generateValueForSQL();
-                $thisId = $this->id;
-                $query = 'UPDATE $thisTableName SET $columnName=$columnValue WHERE id=$thisId';
+                $column_value = $this->columns[$field_name]->generateValueForSQL();
+                $this_id = $this->id;
+                $query = 'UPDATE $this_table_name SET $column_name=$column_value WHERE id=$this_id';
 
                 // Execute Query
                 mysql_run_query($query);
@@ -94,9 +96,9 @@ class Plasma_ModelObject extends Plasma_BaseModel
         {
             throw new Plasma_ObjectNotExists;
         }
-        $thisTableName = $this->tableName;
-        $thisId = $this->id;
-        $query = 'DELETE FROM $thisTableName WHERE id=$thisId';
+        $this_table_name = $this->table_name;
+        $this_id = $this->id;
+        $query = 'DELETE FROM $this_table_name WHERE id=$this_id';
         // Execute Query
         mysql_run_query($query);
     }
