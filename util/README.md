@@ -15,8 +15,8 @@ redirect('https://github.com/Hanul/Plasma');
 ## validate($value, $type, $valid_value = true)
 `$value`가 값이면 `$type`에 해당하는 검증을 수행하고, `Array`면 `$type`에도 검증 `Array`를 넣어 데이터를 검증합니다. `$value`가 값일 때는 `true`나 `false`를 반환하고, `Array`면 검증을 통과하면 `null`을, 검증을 통과하지 못하면 오류 정보를 `Array`로 반환합니다.
 ```php
-validate('', 'notEmpty') // false
-validate('Hello!', 'notEmpty') // true
+validate('', 'not_Empty') // false
+validate('Hello!', 'not_Empty') // true
 
 $data = array(
 	username => ''

@@ -44,8 +44,16 @@ function validate($value, $type, $valid_value = true) {
 			return strlen($value) <= $valid_value;
 		}
 		
-		if ($tpye === 'regex') {
+		if ($type === 'regex') {
 			//TODO:
+		}
+
+		if ($type === 'bool') {
+			if(is_bool($value) !== true) {
+				return "bool값이 아닙니다.";
+			} else {
+				return $value === true;
+			}
 		}
 	}
 }
