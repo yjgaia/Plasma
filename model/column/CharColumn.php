@@ -17,7 +17,7 @@ class Plasma_CharColumn extends Plasma_BaseColumn
 
     public function setValue($_value)
     {
-        if (gettype($_value) == 'string')
+        if (gettype($_value) === 'string')
         {
             $this->value = $_value;
         }

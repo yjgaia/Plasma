@@ -21,7 +21,7 @@ class Plasma_ModelObject extends Plasma_BaseModel
         $column_values = '';
         foreach ($this->columns as $field_name => $column_obj)
         {
-            if ($column_obj->columnName == null) {
+            if ($column_obj->columnName === null) {
                 $column_names .= $field_name.', ';
             } else {
                 $column_names .= $column_obj->columnName.', ';
@@ -33,7 +33,7 @@ class Plasma_ModelObject extends Plasma_BaseModel
         $this_table_name = $this->table_name;
         $this_id = $this->id;
 
-        if ($this->id == 0) {
+        if ($this->id === 0) {
             // This object is not saved yet.
             $query = 'INSERT INTO $this_table_name ($column_names) VALUES ($column_values);';
             // Execute query
@@ -49,7 +49,7 @@ class Plasma_ModelObject extends Plasma_BaseModel
 
     public function update($field_name, $_value)
     {
-        if ($this->id == 0)
+        if ($this->id === 0)
         {
             throw new Plasma_ObjectNotExists;
         }
@@ -67,7 +67,7 @@ class Plasma_ModelObject extends Plasma_BaseModel
 
                 $this_table_name = $this->table_name;
                 $column_name = $this->columns[$field_name]->columnName;
-                if ($column_name == null) {
+                if ($column_name === null) {
                     $column_name = $field_name;
                 }
                 $column_value = $this->columns[$field_name]->generateValueForSQL();
@@ -92,7 +92,7 @@ class Plasma_ModelObject extends Plasma_BaseModel
 
     public function delete()
     {
-        if ($this->id == 0)
+        if ($this->id === 0)
         {
             throw new Plasma_ObjectNotExists;
         }

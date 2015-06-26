@@ -16,7 +16,7 @@ class Plasma_IntColumn extends Plasma_BaseColumn {
 
     public function setValue($_value)
     {
-        if (gettype($_value) == 'integer')
+        if (gettype($_value) === 'integer')
         {
             $this->value = $_value;
         }
