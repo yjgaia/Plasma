@@ -30,10 +30,12 @@ function validate($value, $type, $valid_value = true) {
 			return $value !== null && trim($value) !== '';
 		}
 		
-		if ($type === 'username') {
-			return validate($value, 'not_empty') === true
-			// 영어 대소문자와 숫자, 하이픈(-), 언더바(_)만 됨
-			&& preg_match('/^[_a-zA-Z0-9\-]+$/', $value) !== 0;
+		if ($type === 'bool') {
+			return is_bool($value);
+		}
+		
+		if ($type === 'integer') {
+			return is_int($value);
 		}
 		
 		if ($type === 'min_size') {
@@ -45,15 +47,16 @@ function validate($value, $type, $valid_value = true) {
 		}
 		
 		if ($type === 'regex') {
-			//TODO:
+			return validate($value, 'not_empty') === true
+			&& preg_match($valid_value, $value) !== 0;
 		}
-
-		if ($type === 'bool') {
-			if(is_bool($value) !== true) {
-				return "bool값이 아닙니다.";
-			} else {
-				return $value === true;
-			}
+		
+		if ($type === 'username') {
+			return validate($value, 'regex', '/^[_a-zA-Z0-9\-]+$/');
+		}
+		
+		if ($type === 'email') {
+			return validate($value, 'regex', '/^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/');
 		}
 	}
 }

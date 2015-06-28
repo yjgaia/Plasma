@@ -31,9 +31,13 @@ validate($data, array(
 
 ### 처리할 수 있는 `$type`들
 * `not_empty` 빈 값이 아닌지 검증합니다.
-* `username` 영어 대소문자와 숫자, 하이픈(-), 언더바(_)만 가능한 아이디 형태인지 검증합니다.
+* `bool` 값이 `true`나 `false`인지 검증합니다.
+* `integer` 값이 정수인지 검증합니다.
 * `min_size` 값의 길이가 `$valid_value` 이상인지 검증합니다.
 * `max_size` 값의 길이가 `$valid_value` 이하인지 검증합니다.
+* `regex` 정규 표현식 `$valid_value`을 통과하는지 검증합니다.
+* `username` 영어 대소문자와 숫자, 하이픈(-), 언더바(_)만 가능한 아이디 형태인지 검증합니다.
+* `email` 이메일인지 검증합니다.
 
 ### 사용 예
 `validate`를 사용하는 예제를 작성합니다.
