@@ -38,6 +38,7 @@ validate($data, array(
 * `regex` 정규 표현식 `$valid_value`을 통과하는지 검증합니다.
 * `username` 영어 대소문자와 숫자, 하이픈(-), 언더바(_)만 가능한 아이디 형태인지 검증합니다.
 * `email` 이메일인지 검증합니다.
+* `korea_phone_number` 대한민국 전화번호인지 검증합니다.
 
 ### 사용 예
 `validate`를 사용하는 예제를 작성합니다.

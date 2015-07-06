@@ -62,5 +62,9 @@ function validate($value, $type, $valid_value = true) {
 		if ($type === 'url') {
 			return filter_var($value, FILTER_VALIDATE_URL);
 		}
+		
+		if ($type === 'korea_phone_number') {
+			return validate($value, 'regex', '/^\d{2,3}-\d{3,4}-\d{4}$/');
+		}
 	}
 }
