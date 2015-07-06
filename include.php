@@ -12,7 +12,12 @@ include $PLASMA_FOLDER_PATH.'/util/RequestInfo.php';
 include $PLASMA_FOLDER_PATH.'/util/get_parameter.php';
 include $PLASMA_FOLDER_PATH.'/util/get_form_value.php';
 
+include $PLASMA_FOLDER_PATH.'/util/convert_object_to_string.php';
+
 include $PLASMA_FOLDER_PATH.'/util/show_debug_msg.php';
+include $PLASMA_FOLDER_PATH.'/util/write_debug_msg.php';
+include $PLASMA_FOLDER_PATH.'/util/write_debug_backtrace.php';
+
 include $PLASMA_FOLDER_PATH.'/util/validate.php';
 include $PLASMA_FOLDER_PATH.'/util/redirect.php';
 
