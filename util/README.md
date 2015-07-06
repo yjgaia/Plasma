@@ -130,3 +130,37 @@ get('parameter', false); // xss 필터링 비사용
 post('parameter', true); // xss 필터링
 post('parameter', false); // xss 필터링 비사용
 ```
+
+## write_debug_msg($msg)
+DEBUG_FILE 상수로 지정된 위치의 debug.log 파일 해에당 변수의 내용을 기록합니다
+* array, object는 print_r 함수를 통해 기록합니다.
+* Windows 계열 기본 위치 C:\debug.log, 그외 /tmp/debug.log
+
+```php
+write_debug_msg($variable);
+```
+
+## write_debug_backtrace()
+DEBUG_FILE 상수로 지정된 위치의 debug.log 파일에 debug_backtrace() 정보를 기록합니다.
+파일명, 라인넘버, 함수명, 변수 내용 을 출력하며 write_debug_backtrace 함수가 있는 파일은 출력하지 않습니다.
+```php
+write_debug_backtrace();
+```
+
+## convert_object_to_string($object)
+Object 혹은 Array 형태를 가진 변수의 값을 print_r 함수를 이용해 출력되는 형태의 String 형으로 변환합니다.
+```php
+$array = Array('abc' => 'def');
+var_dump($array);
+array(1){
+  ["abc"]=>
+  string(3) "def"
+}
+
+$string = convert_object_to_string($array);
+var_dump($string);
+string(27) "Array
+(
+    [abc] => def
+)
+"
