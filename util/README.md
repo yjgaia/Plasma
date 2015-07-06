@@ -133,9 +133,9 @@ post('parameter', false); // xss 필터링 비사용
 
 ## write_debug_msg($msg)
 DEBUG_FILE 상수로 지정된 위치의 debug.log 파일 해에당 변수의 내용을 기록합니다
-* array, object는 print_r 함수를 통해 기록합니다.
+* array, object는 convert_object_to_string 함수를 통해 기록합니다.
 * Windows 계열 기본 위치 C:\debug.log, 그외 /tmp/debug.log
-
+* 예) [2017-07-06 23:30:31] 변수의 내용
 ```php
 write_debug_msg($variable);
 ```
