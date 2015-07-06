@@ -33,6 +33,7 @@ validate($data, array(
 * `not_empty` 빈 값이 아닌지 검증합니다.
 * `bool` 값이 `true`나 `false`인지 검증합니다.
 * `integer` 값이 정수인지 검증합니다.
+* `equal` 값이 `$valid_value`와 같은지 검증합니다.
 * `min_size` 값의 길이가 `$valid_value` 이상인지 검증합니다.
 * `max_size` 값의 길이가 `$valid_value` 이하인지 검증합니다.
 * `regex` 정규 표현식 `$valid_value`을 통과하는지 검증합니다.

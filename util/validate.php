@@ -30,6 +30,10 @@ function validate($value, $type, $valid_value = true) {
 			return $value !== null && trim($value) !== '';
 		}
 		
+		if ($type === 'equal') {
+			return $value === $valid_value;
+		}
+		
 		if ($type === 'bool') {
 			return is_bool($value);
 		}
