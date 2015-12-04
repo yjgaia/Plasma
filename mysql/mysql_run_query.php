@@ -13,9 +13,9 @@ function mysql_run_query($query) {
 		$backtrace = debug_backtrace();
 		show_debug_msg($backtrace[0]['args'][0].' # '.$backtrace[0]['file'].', line:'.$backtrace[0]['line']);
 	}
-	
-	$conn = mysql_connect($plasma_config['mysql']['server'], $plasma_config['mysql']['username'], $plasma_config['mysql']['password']);
-	mysql_select_db($plasma_config['mysql']['database'], $conn);
-	mysql_query($query, $conn);
-	mysql_close($conn);
+
+	$conn = mysqli_connect($plasma_config['mysql']['server'], $plasma_config['mysql']['username'], $plasma_config['mysql']['password'], $plasma_config['mysql']['database']);
+
+	mysqli_query($conn, $query);
+	mysqli_close($conn);
 }
