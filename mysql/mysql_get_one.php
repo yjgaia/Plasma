@@ -12,23 +12,22 @@ function mysql_get_one($query) {
 		$backtrace = debug_backtrace();
 		show_debug_msg($backtrace[0]['args'][0].' # '.$backtrace[0]['file'].', line:'.$backtrace[0]['line']);
 	}
-	
-	$conn = mysql_connect($plasma_config['mysql']['server'], $plasma_config['mysql']['username'], $plasma_config['mysql']['password']);
-	mysql_select_db($plasma_config['mysql']['database'], $conn);
 
-	$result = mysql_query($query, $conn);
-	$row = mysql_fetch_array($result);
+	$conn = mysqli_connect($plasma_config['mysql']['server'], $plasma_config['mysql']['username'], $plasma_config['mysql']['password'], $plasma_config['mysql']['database']);
+
+	$result = mysqli_query($conn, $query);
+	$row = mysqli_fetch_array($result);
 	
 	// 값이 없는 경우 null 반환
 	if ($row === false) {
 		return null;
 	}
-
+	$return = new Object();
 	foreach ($row as $key => $data) {
 		$return->$key = $data;
 	}
 
-	mysql_close($conn);
+	mysqli_close($conn);
 	
 	return $return;
 }

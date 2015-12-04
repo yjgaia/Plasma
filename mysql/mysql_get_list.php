@@ -13,20 +13,20 @@ function mysql_get_list($query) {
 		show_debug_msg($backtrace[0]['args'][0].' # '.$backtrace[0]['file'].', line:'.$backtrace[0]['line']);
 	}
 	
-	$conn = mysql_connect($plasma_config['mysql']['server'], $plasma_config['mysql']['username'], $plasma_config['mysql']['password']);
-	mysql_select_db($plasma_config['mysql']['database'], $conn);
+	$conn = mysqli_connect($plasma_config['mysql']['server'], $plasma_config['mysql']['username'], $plasma_config['mysql']['password'], $plasma_config['mysql']['database']);
 
-	$result = mysql_query($query, $conn);
+	$result = mysqli_query($conn, $query);
 
 	$i = 0;
-	while ($row = mysql_fetch_array($result)) {
+	$return = [];
+	while ($row = mysqli_fetch_assoc($result)) {
 		foreach ($row as $key => $data) {
 			$return[$i]->$key = $data;
 		}
 		$i++;
 	}
 
-	mysql_close($conn);
+	mysqli_close($conn);
 	
 	return $return;
 }
