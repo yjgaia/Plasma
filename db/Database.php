@@ -29,7 +29,9 @@ class Plasma_Database {
 
     public function &query($statement) {
         $stmt = $this->handler->query($statement);
-        $ret = new DBMS_Result($stmt);
+        $ret = new Plasma_DatabaseResult($stmt);
+        $this->errorInfo = $this->handler->errorInfo();
+        $this->errorInfo = $this->handler->errorCode();
         $this->query_count++;
         return $ret;
     }
@@ -65,8 +67,11 @@ class Plasma_Database {
         else {
             $params_list = '';
         }
-        $result = $this->handler->query("CALL " . $proc_name ($params_list));
+        $result = $this->query("CALL " . $proc_name ($params_list));
         $this->is_proc = $chk_output;
+        $this->errorInfo = $this->handler->errorInfo();
+        $this->errorInfo = $this->handler->errorCode();
+        $this->query_count++;
         return $result;
     }
 
