@@ -39,6 +39,3 @@ git pull
 
 ## SourceTree에서 Plasma 열기
 상단 메뉴 중 복제 / 생성을 누른 뒤, 작업공간 열기를 누르고 Plasma를 clone한 경로를 지정합니다.
-
-## TODO
-- mysql 기능들 구현 시 mysql_xxx -> mysqli_xxx
